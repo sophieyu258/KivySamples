@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "KivySamples", "KivySamples\KivySamples.pyproj", "{4CF81645-6C1B-4865-8B50-EA00D7E5976E}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PongGame", "PongGame\PongGame.pyproj", "{180B088C-1C29-4306-8EA2-CB53A9F054E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4CF81645-6C1B-4865-8B50-EA00D7E5976E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4CF81645-6C1B-4865-8B50-EA00D7E5976E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{180B088C-1C29-4306-8EA2-CB53A9F054E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{180B088C-1C29-4306-8EA2-CB53A9F054E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
