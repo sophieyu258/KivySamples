@@ -1,28 +1,23 @@
-#!/usr/bin/python3
-
 from tkinter import *
-class Checkbar(Frame):
-   def __init__(self, parent=None, picks=[], side=LEFT, anchor=W):
-      Frame.__init__(self, parent)
-      self.vars = []
-      for pick in picks:
-         var = IntVar()
-         chk = Checkbutton(self, text=pick, variable=var)
-         chk.pack(side=side, anchor=anchor, expand=YES)
-         self.vars.append(var)
-   def state(self):
-      return map((lambda var: var.get()), self.vars)
 
-if __name__ == '__main__':
-   root = Tk()
-   lng = Checkbar(root, ['Python', 'Ruby', 'Perl', 'C++'])
-   tgl = Checkbar(root, ['English','German'])
-   lng.pack(side=TOP,  fill=X)
-   tgl.pack(side=LEFT)
-   lng.config(relief=GROOVE, bd=2)
+def show_entry_fields():
+   print("First Name: %s\nLast Name: %s" % (e1.get(), e2.get()))
+   e1.delete(0,END)
+   e2.delete(0,END)
 
-   def allstates(): 
-      print(list(lng.state()), list(tgl.state()))
-   Button(root, text='Quit', command=root.quit).pack(side=RIGHT)
-   Button(root, text='Peek', command=allstates).pack(side=RIGHT)
-   root.mainloop()
+master = Tk()
+Label(master, text="First Name").grid(row=0)
+Label(master, text="Last Name").grid(row=1)
+
+e1 = Entry(master)
+e2 = Entry(master)
+e1.insert(10,"Miller")
+e2.insert(10,"Jill")
+
+e1.grid(row=0, column=1)
+e2.grid(row=1, column=1)
+
+Button(master, text='Quit', command=master.quit).grid(row=3, column=0, sticky=W, pady=4)
+Button(master, text='Show', command=show_entry_fields).grid(row=3, column=1, sticky=W, pady=4)
+
+mainloop( )
