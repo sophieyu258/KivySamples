@@ -1,37 +1,28 @@
-import tkinter as tk
+#!/usr/bin/python3
 
-root = tk.Tk()
+from tkinter import *
+class Checkbar(Frame):
+   def __init__(self, parent=None, picks=[], side=LEFT, anchor=W):
+      Frame.__init__(self, parent)
+      self.vars = []
+      for pick in picks:
+         var = IntVar()
+         chk = Checkbutton(self, text=pick, variable=var)
+         chk.pack(side=side, anchor=anchor, expand=YES)
+         self.vars.append(var)
+   def state(self):
+      return map((lambda var: var.get()), self.vars)
 
-v = tk.IntVar()
-v.set(1)  # initializing the choice, i.e. Python
+if __name__ == '__main__':
+   root = Tk()
+   lng = Checkbar(root, ['Python', 'Ruby', 'Perl', 'C++'])
+   tgl = Checkbar(root, ['English','German'])
+   lng.pack(side=TOP,  fill=X)
+   tgl.pack(side=LEFT)
+   lng.config(relief=GROOVE, bd=2)
 
-languages = [
-    ("Python",1),
-    ("Perl",2),
-    ("Java",3),
-    ("C++",4),
-    ("C",5)
-]
-
-def ShowChoice():
-    print(v.get())
-
-tk.Label(root, 
-         text="""Choose your favourite 
-programming language:""",
-         justify = tk.LEFT,
-         padx = 20).pack()
-
-for val, language in enumerate(languages):
-    print(val, " - ", language)
-    tk.Radiobutton(root, 
-                  text=language[0],
-                  indicatoron = 0,
-                  width = 20,
-                  padx = 20, 
-                  variable=v, 
-                  command=ShowChoice,
-                  value=val).pack(anchor=tk.W)
-
-
-root.mainloop()
+   def allstates(): 
+      print(list(lng.state()), list(tgl.state()))
+   Button(root, text='Quit', command=root.quit).pack(side=RIGHT)
+   Button(root, text='Peek', command=allstates).pack(side=RIGHT)
+   root.mainloop()
