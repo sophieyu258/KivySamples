@@ -1,25 +1,19 @@
 import tkinter as tk
 
 root = tk.Tk()
-logo = tk.PhotoImage(file="image.gif")
-
-# w1 = tk.Label(root, image=logo).pack(side="right")
-
-explanation = """At present, only GIF and PPM/PGM
-formats are supported, but an interface 
-exists to allow additional image file
-formats to be added easily."""
-
-#w = tk.Label(root, 
-#             compound = tk.CENTER,
-#             text=explanation, 
-#             image=logo).pack(side="right")
-
-w = tk.Label(root, 
-          justify=tk.LEFT,
-          compound = tk.LEFT,
-          padx = 10, 
-          text=explanation, 
-          image=logo).pack(side="right")
+tk.Label(root, 
+		 text="Red Text in Times Font",
+		 fg = "red",
+		 font = "Times").pack()
+tk.Label(root, 
+		 text="Green Text in Helvetica Font",
+		 fg = "light green",
+		 bg = "dark green",
+		 font = "Helvetica 16 bold italic").pack()
+tk.Label(root, 
+		 text="Blue Text in Verdana bold",
+		 fg = "blue",
+		 bg = "yellow",
+		 font = "Verdana 10 bold").pack()
 
 root.mainloop()
