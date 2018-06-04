@@ -26,6 +26,8 @@ for val, language in enumerate(languages):
     print(val, " - ", language)
     tk.Radiobutton(root, 
                   text=language[0],
+                  indicatoron = 0,
+                  width = 20,
                   padx = 20, 
                   variable=v, 
                   command=ShowChoice,
