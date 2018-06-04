@@ -1,21 +1,35 @@
 import tkinter as tk
-    
-
-def write_slogan():
-    print("Tkinter is easy to use!")
 
 root = tk.Tk()
-frame = tk.Frame(root)
-frame.pack()
 
-button = tk.Button(frame, 
-                   text="QUIT", 
-                   fg="red",
-                   command=quit)
-button.pack(side=tk.LEFT)
-slogan = tk.Button(frame,
-                   text="Hello",
-                   command=write_slogan)
-slogan.pack(side=tk.LEFT)
+v = tk.IntVar()
+v.set(1)  # initializing the choice, i.e. Python
+
+languages = [
+    ("Python",1),
+    ("Perl",2),
+    ("Java",3),
+    ("C++",4),
+    ("C",5)
+]
+
+def ShowChoice():
+    print(v.get())
+
+tk.Label(root, 
+         text="""Choose your favourite 
+programming language:""",
+         justify = tk.LEFT,
+         padx = 20).pack()
+
+for val, language in enumerate(languages):
+    print(val, " - ", language)
+    tk.Radiobutton(root, 
+                  text=language[0],
+                  padx = 20, 
+                  variable=v, 
+                  command=ShowChoice,
+                  value=val).pack(anchor=tk.W)
+
 
 root.mainloop()
