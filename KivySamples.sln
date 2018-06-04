@@ -9,6 +9,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PongGame", "PongGame\PongGa
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Chap01_1", "Chap01_1\Chap01_1.pyproj", "{FF7D1800-55B2-4DE8-8B71-DC2B12C27448}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TkinterTutorial", "TkinterTutorial\TkinterTutorial.pyproj", "{480A966C-3C32-45C1-9A96-C9E010F55ACE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{180B088C-1C29-4306-8EA2-CB53A9F054E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF7D1800-55B2-4DE8-8B71-DC2B12C27448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF7D1800-55B2-4DE8-8B71-DC2B12C27448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{480A966C-3C32-45C1-9A96-C9E010F55ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{480A966C-3C32-45C1-9A96-C9E010F55ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
