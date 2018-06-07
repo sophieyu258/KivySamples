@@ -13,7 +13,13 @@ def filecallback():
     name= askopenfilename() 
     print(name)
     
+def dircallback():
+    name= askdirectory() 
+    print(name)
+
 Button(root, text='File Open', command=filecallback).pack(fill=X)
+
+Button(root, text='Directory Open', command=dircallback).pack(fill=X)
 
 Button(root, 
        text='Choose Color', 
