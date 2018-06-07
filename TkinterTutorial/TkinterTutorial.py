@@ -1,12 +1,17 @@
+
+# https://www.python-course.eu/tkinter_canvas.php
+
 from tkinter import *
 
 canvas_width = 500
 canvas_height = 150
 
+oval_size = 3
+
 def paint( event ):
    python_green = "#476042"
-   x1, y1 = ( event.x - 1 ), ( event.y - 1 )
-   x2, y2 = ( event.x + 1 ), ( event.y + 1 )
+   x1, y1 = ( event.x - oval_size ), ( event.y - oval_size )
+   x2, y2 = ( event.x + oval_size ), ( event.y + oval_size )
    w.create_oval( x1, y1, x2, y2, fill = python_green )
 
 master = Tk()
