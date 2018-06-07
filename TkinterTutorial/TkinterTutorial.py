@@ -1,28 +1,20 @@
-
-# https://www.python-course.eu/tkinter_canvas.php
-
 from tkinter import *
 
-canvas_width = 500
-canvas_height = 150
-
-oval_size = 3
-
-def paint( event ):
-   python_green = "#476042"
-   x1, y1 = ( event.x - oval_size ), ( event.y - oval_size )
-   x2, y2 = ( event.x + oval_size ), ( event.y + oval_size )
-   w.create_oval( x1, y1, x2, y2, fill = python_green )
-
-master = Tk()
-master.title( "Painting using Ovals" )
-w = Canvas(master, 
-           width=canvas_width, 
-           height=canvas_height)
-w.pack(expand = YES, fill = BOTH)
-w.bind( "<B1-Motion>", paint )
-
-message = Label( master, text = "Press and Drag the mouse to draw" )
-message.pack( side = BOTTOM )
-    
-mainloop()
+root = Tk()
+S = Scrollbar(root)
+T = Text(root, height=4, width=50)
+S.pack(side=RIGHT, fill=Y)
+T.pack(side=LEFT, fill=Y)
+S.config(command=T.yview)
+T.config(yscrollcommand=S.set)
+quote = """HAMLET: To be, or not to be--that is the question:
+Whether 'tis nobler in the mind to suffer
+The slings and arrows of outrageous fortune
+Or to take arms against a sea of troubles
+And by opposing end them. To die, to sleep--
+No more--and by a sleep to say we end
+The heartache, and the thousand natural shocks
+That flesh is heir to. 'Tis a consummation
+Devoutly to be wished."""
+T.insert(END, quote)
+mainloop(  )
