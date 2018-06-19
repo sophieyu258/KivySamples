@@ -1,27 +1,26 @@
+from tkinter import *
+from tkinter.filedialog import askopenfilename
 
-# https://www.python-course.eu/tkinter_layout_management.php
-
-import tkinter as tk
-import random
+def NewFile():
+    print("New File!")
+def OpenFile():
+    name = askopenfilename()
+    print( name )
+def About():
+    print("This is a simple example of a menu")
     
-root = tk.Tk()
-# width x height + x_offset + y_offset:
-root.geometry("170x250+30+230") 
-     
-languages = ['Python','Perl','C++','Java','Tcl/Tk']
-labels = range(5)
-for i in range(5):
-   ct = [random.randrange(256) for x in range(3)]
-   brightness = int(round(0.299*ct[0] + 0.587*ct[1] + 0.114*ct[2]))
-   ct_hex = "%02x%02x%02x" % tuple(ct)
-   bg_colour = '#' + "".join(ct_hex)
-   l = tk.Label(root, 
-                text=languages[i], 
-                fg='White' if brightness < 120 else 'Black', 
-                bg=bg_colour)
-   l.place(x = 20, y = 30 + i*30, width=120, height=25)
-   
-w = tk.Label(root, text="green", bg="green", fg="black")
-w.place(x = 10, y = 200, width=120, height=25)
+root = Tk()
+menu = Menu(root)
+root.config(menu=menu)
+filemenu = Menu(menu)
+menu.add_cascade(label="File", menu=filemenu)
+filemenu.add_command(label="New", command=NewFile)
+filemenu.add_command(label="Open...", command=OpenFile)
+filemenu.add_separator()
+filemenu.add_command(label="Exit", command=root.quit)
 
-root.mainloop()
+helpmenu = Menu(menu)
+menu.add_cascade(label="Help", menu=helpmenu)
+helpmenu.add_command(label="About...", command=About)
+
+mainloop()
