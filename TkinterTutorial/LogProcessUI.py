@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilename
 from tkinter import messagebox
+import ProcessLog
 
 inputFilePath = ""
 
@@ -13,6 +14,7 @@ def OpenFile():
 
 def ProcessFile():
     print(inputFilePath)
+    ProcessLog.ProcessFile(inputFilePath)
 
 def About():
     messagebox.showinfo("About this program", "Data processing tool for WorkTimeTracker by Bin Hang")

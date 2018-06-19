@@ -154,7 +154,7 @@ class EmpWorkRecord:
 
 def ProcessFile(filename):
     global inputFileBaseName
-    inputFileBaseName = os.path.basename(fn)
+    inputFileBaseName = os.path.basename(filename)
     print("" + inputFileBaseName)
 
     empWorkTime = {}
