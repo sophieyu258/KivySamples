@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>480a966c-3c32-45c1-9a96-c9e010f55ace</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>TkinterTutorial.py</StartupFile>
+    <StartupFile>LogProcessUI.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,6 +21,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="LogProcessUI.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessLog.py" />
     <Compile Include="TkinterTutorial.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

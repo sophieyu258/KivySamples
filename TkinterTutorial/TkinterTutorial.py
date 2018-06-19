@@ -9,6 +9,15 @@ def OpenFile():
 def About():
     print("This is a simple example of a menu")
     
+def hello(event):
+    print("Single Click, Button-l") 
+def double_click(event):                           
+    print("Double Click") 
+
+def motion(event):
+    print("Mouse position: (%s %s)" % (event.x, event.y))
+    return
+
 root = Tk()
 menu = Menu(root)
 root.config(menu=menu)
@@ -27,8 +36,13 @@ colours = ['red','green','orange','white','yellow','blue']
 
 r = 0
 for c in colours:
-    Label(text=c, relief=RIDGE,width=15).grid(row=r,column=0)
-    Entry(bg=c, relief=SUNKEN,width=10).grid(row=r,column=1)
+    widget = Label(text=c, relief=RIDGE,width=15)
+    widget.grid(row=r,column=0)
+    widget.bind('<Button-1>', hello)
+    widget.bind('<Double-1>', double_click)
+    ent = Entry(bg=c, relief=SUNKEN,width=10)
+    ent.grid(row=r,column=1)
+    ent.bind('<Motion>',motion)
     r = r + 1
 
 mainloop()
