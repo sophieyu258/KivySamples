@@ -1,9 +1,11 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import askdirectory
 from tkinter import messagebox
 import ProcessLog
 
 inputFilePath = ""
+outputDirPath = ""
 
 
 def OpenFile():
@@ -12,9 +14,15 @@ def OpenFile():
     print( inputFilePath )
     inputFile.set(inputFilePath)
 
+def OpenDir():
+    global outputDirPath
+    outputDirPath = askdirectory()
+    print( outputDirPath )
+    outputDir.set(outputDirPath)
+
 def ProcessFile():
     print(inputFilePath)
-    ProcessLog.ProcessFile(inputFilePath)
+    ProcessLog.ProcessFile(inputFilePath, outputDirPath)
 
 def About():
     messagebox.showinfo("About this program", "Data processing tool for WorkTimeTracker by Bin Hang")
@@ -27,7 +35,8 @@ menu = Menu(root)
 root.config(menu=menu)
 filemenu = Menu(menu)
 menu.add_cascade(label="File", menu=filemenu)
-filemenu.add_command(label="Open...", command=OpenFile)
+filemenu.add_command(label="Open Input File...", command=OpenFile)
+filemenu.add_command(label="Choose Output Dir...", command=OpenDir)
 filemenu.add_command(label="Process", command=ProcessFile)
 filemenu.add_separator()
 filemenu.add_command(label="Exit", command=root.quit)
@@ -38,6 +47,8 @@ helpmenu.add_command(label="About...", command=About)
 
 Label(text="Please choose the input file:").pack()
 inputFile = StringVar(root)
-fileEntry = Entry(root, relief=SUNKEN, textvariable=inputFile).pack(fill="x", expand=True)
+Entry(root, relief=SUNKEN, textvariable=inputFile).pack(fill="x", expand=True)
+outputDir = StringVar(root)
+Entry(root, relief=SUNKEN, textvariable=outputDir).pack(fill="x", expand=True)
 
 mainloop()

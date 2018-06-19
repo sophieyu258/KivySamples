@@ -4,6 +4,7 @@ import sys
 import os
 
 inputFileBaseName = ""
+outputDirPath = ""
 
 class WorkTimeSpan:
     timeStart = None
@@ -111,7 +112,7 @@ class EmpWorkRecord:
         self.mDailyRecord = []
 
     def Export(self):
-        csvOutputFileName = (inputFileBaseName + "_" 
+        csvOutputFileName = (outputDirPath + os.sep + inputFileBaseName + "_" 
                              + self.mEmployeeName + ".csv")
         print("Export to [" + csvOutputFileName + "]")
         file = open(csvOutputFileName, "w")
@@ -152,10 +153,12 @@ class EmpWorkRecord:
         dayProcessor.Process()
         self.mDailyRecord.append(dayProcessor)
 
-def ProcessFile(filename):
+def ProcessFile(filename, outputDir):
     global inputFileBaseName
     inputFileBaseName = os.path.basename(filename)
-    print("" + inputFileBaseName)
+    global outputDirPath
+    outputDirPath = outputDir
+    print("Process [" + inputFileBaseName + "] and output to [" + outputDirPath)
 
     empWorkTime = {}
     for line in open(filename):
