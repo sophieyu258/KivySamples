@@ -22,14 +22,25 @@ def OpenDir():
 
 def ProcessFile():
     print(inputFilePath)
+    print(outputDirPath)
+    if not inputFilePath:
+        messagebox.showerror("Error", "Input file not selected!")
+        return
+    if not outputDirPath:
+        messagebox.showerror("Error", "Output folder not selected!")
+        return
     ProcessLog.ProcessFile(inputFilePath, outputDirPath)
+    messagebox.showinfo("Success!", "Data processed successfully! Please check the output folder for results.")
 
 def About():
     messagebox.showinfo("About this program", "Data processing tool for WorkTimeTracker by Bin Hang")
 
 
 root = Tk()
-root.geometry("320x240+30+30") 
+root.title("Worktime data tool")
+root.geometry("400x100+30+30") 
+
+Grid.columnconfigure(root, 1, weight=1)
 
 menu = Menu(root)
 root.config(menu=menu)
@@ -45,10 +56,14 @@ helpmenu = Menu(menu)
 menu.add_cascade(label="Help", menu=helpmenu)
 helpmenu.add_command(label="About...", command=About)
 
-Label(text="Please choose the input file:").pack()
+Label(root, text="Input file:").grid(row = 0, column = 0, sticky=W)
 inputFile = StringVar(root)
-Entry(root, relief=SUNKEN, textvariable=inputFile).pack(fill="x", expand=True)
+Entry(root, relief=SUNKEN, textvariable=inputFile).grid(row = 0, column = 1, sticky=N+S+E+W)
+Button(root, text="...", command=OpenFile).grid(row = 0, column = 2)
+Label(text="Output Folder:").grid(row = 1, column = 0, sticky=W)
 outputDir = StringVar(root)
-Entry(root, relief=SUNKEN, textvariable=outputDir).pack(fill="x", expand=True)
+Entry(root, relief=SUNKEN, textvariable=outputDir).grid(row = 1, column = 1, sticky=N+S+E+W)
+Button(root, text="...", command=OpenDir).grid(row = 1, column = 2)
+Button(root, text="Go", command=ProcessFile).grid(row = 2, column = 1, pady=(10, 5))
 
 mainloop()
